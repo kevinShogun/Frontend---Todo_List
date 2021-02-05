@@ -1,55 +1,58 @@
-import React,{Fragment, useState} from 'react'
+import React, { Fragment, useState, useContext } from "react";
+import ProjectContext from "../../contexts/projects/projectContext";
 
 const NewToDoList = () => {
+	//obtener el state del formulario
 
-    const [list, guardarList] = useState({
-        NameTODO: '',
-    });
+	const projectsContext = useContext(ProjectContext);
 
-    const {NameTODO} = list;
+	const { formulario } = projectsContext;
 
-    // lee los contenidos del input
-    const onChangeList = e =>{
-        guardarList({
-            ...list,
-            [e.target.name] : e.target.value
+	//state para el TODO
+	const [list, guardarList] = useState({
+		NameTODO: "",
+	});
 
-        })
-    };
+	const { NameTODO } = list;
 
-    const onSubmitToDO = (e) =>{
-        e.preventDefault();
-    }
-    return ( 
-        <>
-        <Fragment>
-            <button 
-        type='button'
-        className="btn btn-primario btn-block">New ToDo List
-        </button>
+	// lee los contenidos del input
+	const onChangeList = (e) => {
+		guardarList({
+			...list,
+			[e.target.name]: e.target.value,
+		});
+	};
 
-        <form className='formulario-nuevo-proyecto'>
+	const onSubmitToDO = (e) => {
+		e.preventDefault();
+	};
+	return (
+		<>
+			<Fragment>
+				<button type="button" className="btn btn-primario btn-block">
+					New ToDo List
+				</button>
+				{formulario ? (
+					<form className="formulario-nuevo-proyecto">
+						<input
+							type="text"
+							className="input-text"
+							placeholder="Name of ToDo List"
+							name="NameTODO"
+							value={NameTODO}
+							onChange={onChangeList}
+						/>
+						<input
+							type="submit"
+							className="btn btn-primario btn-block"
+							value="Add ToDo List"
+							onSubmit={onSubmitToDO}
+						/>
+					</form>
+				) : null}
+			</Fragment>
+		</>
+	);
+};
 
-            <input
-                type='text'
-                className='input-text'
-                placeholder='Name of ToDo List'
-                name='NameTODO'
-                value={NameTODO}
-                onChange={onChangeList}
-
-            />
-            <input
-                type='submit'
-                className='btn btn-primario btn-block'
-                value='Add ToDo List'
-                onSubmit={onSubmitToDO}
-            />
-        </form>
-        </Fragment>
-        
-        </>
-     );
-}
- 
 export default NewToDoList;

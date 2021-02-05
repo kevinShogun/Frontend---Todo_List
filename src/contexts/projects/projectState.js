@@ -1,26 +1,25 @@
-import React from 'react'
-import projectContext from './projectContext';
-import projectReducer from './projectReducer';
+import React, { useReducer } from "react";
+import ProjectContext from "./projectContext";
+import projectReducer from "./projectReducer";
 
-const ProjectState = props => {
+const ProjectState = (props) => {
+	
+    const initialState = {
+		formulario : true
+	};
 
-    const initialState ={
-        formToDo: false
-    }
+	const [state, dispatch] = useReducer(projectReducer, initialState);
 
-    const [state, dispatch] = useReducer(projectReducer, initialState)
-
-
-    return( 
-        <projectContext.Provider
+	return (
+		<ProjectContext.Provider
             value={{
-                next: state.formToDo
+                formulario: state.formulario
             }}
         >
-            {props.childre}
-        </projectContext.Provider>
-    );
+            {props.children}
 
-}
+        </ProjectContext.Provider>
+	);
+};
 
 export default ProjectState;
