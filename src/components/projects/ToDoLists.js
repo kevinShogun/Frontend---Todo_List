@@ -1,23 +1,24 @@
-import React from 'react';
-import Item from './List_item';
+import React, { useContext } from "react";
+import Item from "./List_item";
+import ProjectContext from "../../contexts/projects/projectContext";
 
 const ToDoLists = () => {
 
-    const ListItems = [
-        {name: 'Tareas Hogareñas'},
-        {name: 'Deberes Escoalres'},
-        {name: 'Obligaciones Laborales'}
-    ]
+    //extraer Proyectos
+	const projectsContext = useContext(ProjectContext);
+	const { ListItems } = projectsContext;
 
-    return ( 
-        <ul className="listado-proyectos">
-            {ListItems.map(item=>(
-                <Item
-                      Items={item}  
-                />
-            ))}
-        </ul>
-     );
-}
- 
+
+    // revisda si hay Proyectos
+    if(ListItems.length === 0) return null;
+
+	return (
+		<ul className="listado-proyectos">
+			{ListItems.map((item) => (
+				<Item key={ListItems.id} Items={item} />
+			))}
+		</ul>
+	);
+};
+
 export default ToDoLists;

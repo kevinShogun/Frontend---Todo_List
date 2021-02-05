@@ -6,7 +6,7 @@ const NewToDoList = () => {
 
 	const projectsContext = useContext(ProjectContext);
 
-	const { formulario } = projectsContext;
+	const { formulario, mostrarFormulario } = projectsContext;
 
 	//state para el TODO
 	const [list, guardarList] = useState({
@@ -29,7 +29,9 @@ const NewToDoList = () => {
 	return (
 		<>
 			<Fragment>
-				<button type="button" className="btn btn-primario btn-block">
+				<button type="button" className="btn btn-primario btn-block"
+					onClick={()=> mostrarFormulario()}
+				>
 					New ToDo List
 				</button>
 				{formulario ? (
