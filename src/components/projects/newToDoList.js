@@ -32,7 +32,7 @@ const NewToDoList = () => {
 				<button type="button" className="btn btn-primario btn-block"
 					onClick={()=> mostrarFormulario()}
 				>
-					New ToDo List
+					New To Do List
 				</button>
 				{formulario ? (
 					<form className="formulario-nuevo-proyecto">
