@@ -1,13 +1,14 @@
 import React, { useReducer } from "react";
 import TaskContext from "./TaskContext";
 import TaskReducer from "./TaskReducer";
-
+import uuid from 'react-uuid';
 import {TODO_TASK, AGREGAR_TASK, VALIDAR_TASK, ELIMINAR_TASK} from '../../types/index'
 
 const TaskState = (props) => {
 	const initialState = {
 		taskItems: [
 			{
+				id: 0,
 				TaskName: "Iniciar el E-commerce de la Farmacia",
 				estado: true,
 				ToDoListId: 1,
@@ -105,6 +106,7 @@ const TaskState = (props) => {
     }
 
     const agregarTask = (taskItems) =>{
+		taskItems.id = uuid();
         dispatch({
             type: AGREGAR_TASK,
             payload: taskItems

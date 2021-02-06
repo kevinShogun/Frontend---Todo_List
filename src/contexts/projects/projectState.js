@@ -1,6 +1,5 @@
 import React, { useReducer } from "react";
-import uuid from 'react-uuid'
-
+import uuid from 'react-uuid';
 import ProjectContext from "./projectContext";
 import projectReducer from "./projectReducer";
 import { FORM_TODO, OBTENER_TODO, AGREGAR_TODO, VALIDAR_FORM, ACTUAL_TODO, ELIMINAR_TODO} from "../../types";
