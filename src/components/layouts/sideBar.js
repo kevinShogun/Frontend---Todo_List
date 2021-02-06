@@ -8,10 +8,12 @@ const sidebar = () => {
         <aside className='sombra'>
             <h1>ToDo<span> List</span></h1>
                 <NewToDo/>
+
             <div className="proyectos ">
                 <h2>Your  To Do  Lists</h2>
                 <ToDoLists/>
             </div>
+            
         </aside>
      );
 }
