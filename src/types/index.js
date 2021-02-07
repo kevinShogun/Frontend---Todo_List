@@ -10,3 +10,6 @@ export const TODO_TASK = 'TODO_TASK';
 export const AGREGAR_TASK = 'AGREGAR_TASK';
 export const VALIDAR_TASK = 'VALIDAR_TASK';
 export const ELIMINAR_TASK = 'ELIMINAR_TASK';
+export const ESTADO_TASK = 'ESTADO_TASK';
+export const ACTUAL_TASK = 'ACTUAL_TASK';
+export const EDITAR_TASK = 'EDITAR_TASK';

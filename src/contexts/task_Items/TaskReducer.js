@@ -1,5 +1,5 @@
 
-import {TODO_TASK, AGREGAR_TASK, VALIDAR_TASK, ELIMINAR_TASK} from '../../types/index'
+import {TODO_TASK, AGREGAR_TASK, VALIDAR_TASK, ELIMINAR_TASK, ESTADO_TASK, ACTUAL_TASK, EDITAR_TASK} from '../../types/index'
 
 export default (state, action)=>{
     switch (action.type) {
@@ -11,7 +11,7 @@ export default (state, action)=>{
         case AGREGAR_TASK:
             return{
                 ...state,
-                taskItems: [...state.taskItems, action.payload],
+                taskItems: [action.payload, ...state.taskItems, ],
                 error_task: false
             }
         case VALIDAR_TASK:
@@ -24,6 +24,20 @@ export default (state, action)=>{
                     ...state,
                     taskItems: state.taskItems.filter(task=> task.id !== action.payload)
                 }
+                 case EDITAR_TASK:
+                case ESTADO_TASK:
+					return{
+						...state,
+                        taskItems: state.taskItems.map(task => task.id === action.payload.id ? action.payload : task),
+                        task_select: null
+					}
+                case ACTUAL_TASK:
+                    return{
+                        ...state,
+                        task_select: action.payload
+                    }
+               
+                
         default:
             return state;
             break;

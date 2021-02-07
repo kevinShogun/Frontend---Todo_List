@@ -2,9 +2,9 @@ import React, { Fragment, useContext } from "react";
 import Task from "./Task";
 import ProjectContext from "../../contexts/projects/projectContext";
 import TaskContext from "../../contexts/task_Items/TaskContext";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 const ListTask = () => {
-	
 	//extraer Todos del state Inicial
 	const projectsContext = useContext(ProjectContext);
 	const { todo_select, eliminaToDo } = projectsContext;
@@ -13,16 +13,15 @@ const ListTask = () => {
 	const tasksContext = useContext(TaskContext);
 	const { task_todo } = tasksContext;
 
-	// si no hay todo seleccionado 
-	if(!todo_select) return <h2>Select a To Do List</h2>;
+	// si no hay todo seleccionado
+	if (!todo_select) return <h2>Select a To Do List</h2>;
 
 	// Array destructuring para extraer el todo actual
-	const [todo_actual] = todo_select;	
+	const [todo_actual] = todo_select;
 
-
-	const onClickEliminaToDo = () =>{
+	const onClickEliminaToDo = () => {
 		eliminaToDo(todo_actual.id);
-	}
+	};
 
 	return (
 		<Fragment>
@@ -33,12 +32,18 @@ const ListTask = () => {
 						<p>Noting Today</p>
 					</li>
 				) : (
-					task_todo.map((task) => <Task 
-					key={task.id}
-					task={task} />)
+					<TransitionGroup>
+						{task_todo.map((task) => (
+							<CSSTransition  key={task.id} timeout={500} classNames='tarea'> 
+							<Task task={task} />
+							</CSSTransition>
+						))}
+					</TransitionGroup>
 				)}
 			</ul>
-			<button type="button" className="btn btn-eliminar sombra"
+			<button
+				type="button"
+				className="btn btn-eliminar sombra"
 				onClick={onClickEliminaToDo}
 			>
 				Delete ToDo List &times;

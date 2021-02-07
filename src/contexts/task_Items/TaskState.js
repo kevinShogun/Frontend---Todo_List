@@ -1,8 +1,16 @@
 import React, { useReducer } from "react";
 import TaskContext from "./TaskContext";
 import TaskReducer from "./TaskReducer";
-import uuid from 'react-uuid';
-import {TODO_TASK, AGREGAR_TASK, VALIDAR_TASK, ELIMINAR_TASK} from '../../types/index'
+import uuid from "react-uuid";
+import {
+	TODO_TASK,
+	AGREGAR_TASK,
+	VALIDAR_TASK,
+	ELIMINAR_TASK,
+	ESTADO_TASK,
+	ACTUAL_TASK,
+	EDITAR_TASK,
+} from "../../types/index";
 
 const TaskState = (props) => {
 	const initialState = {
@@ -14,130 +22,173 @@ const TaskState = (props) => {
 				ToDoListId: 1,
 			},
 			{
-				id: 1, TaskName: "Terminar el Widget de contactos en Flutter",
+				id: 1,
+				TaskName: "Terminar el Widget de contactos en Flutter",
 				estado: false,
 				ToDoListId: 2,
 			},
 			{
-				id: 2, TaskName: "Normalizar la bd del restaurante que esta en azureSql",
+				id: 2,
+				TaskName: "Normalizar la bd del restaurante que esta en azureSql",
 				estado: false,
 				ToDoListId: 3,
 			},
 			{
-				id: 3, TaskName: "Optimizar la app de la tienda de ropa (Refactorizar)",
+				id: 3,
+				TaskName: "Optimizar la app de la tienda de ropa (Refactorizar)",
 				estado: true,
 				ToDoListId: 4,
 			},
-            {
-				id: 4, TaskName: "Terminar el Widget de contactos en Flutter",
+			{
+				id: 4,
+				TaskName: "Terminar el Widget de contactos en Flutter",
 				estado: false,
 				ToDoListId: 1,
 			},
 			{
-				id: 5, TaskName: "Normalizar la bd del restaurante que esta en azureSql",
+				id: 5,
+				TaskName: "Normalizar la bd del restaurante que esta en azureSql",
 				estado: false,
 				ToDoListId: 4,
 			},
 			{
-				id: 6, TaskName: "Optimizar la app de la tienda de ropa (Refactorizar)",
+				id: 6,
+				TaskName: "Optimizar la app de la tienda de ropa (Refactorizar)",
 				estado: true,
 				ToDoListId: 3,
 			},
-            {
-				id: 7, TaskName: "Optimizar la app de la tienda de ropa (Refactorizar)",
+			{
+				id: 7,
+				TaskName: "Optimizar la app de la tienda de ropa (Refactorizar)",
 				estado: true,
 				ToDoListId: 2,
 			},
-            {
-				id: 8, TaskName: "Iniciar el E-commerce de la Farmacia",
+			{
+				id: 8,
+				TaskName: "Iniciar el E-commerce de la Farmacia",
 				estado: true,
 				ToDoListId: 3,
 			},
 			{
-				id: 9, TaskName: "Terminar el Widget de contactos en Flutter",
+				id: 9,
+				TaskName: "Terminar el Widget de contactos en Flutter",
 				estado: false,
 				ToDoListId: 1,
 			},
 			{
-				id: 10, TaskName: "Normalizar la bd del restaurante que esta en azureSql",
+				id: 10,
+				TaskName: "Normalizar la bd del restaurante que esta en azureSql",
 				estado: false,
 				ToDoListId: 1,
 			},
 			{
-				id: 11, TaskName: "Optimizar la app de la tienda de ropa (Refactorizar)",
+				id: 11,
+				TaskName: "Optimizar la app de la tienda de ropa (Refactorizar)",
 				estado: true,
 				ToDoListId: 3,
 			},
-            {
-				id: 12, TaskName: "Terminar el Widget de contactos en Flutter",
+			{
+				id: 12,
+				TaskName: "Terminar el Widget de contactos en Flutter",
 				estado: false,
 				ToDoListId: 4,
 			},
 			{
-				id: 13, TaskName: "Normalizar la bd del restaurante que esta en azureSql",
+				id: 13,
+				TaskName: "Normalizar la bd del restaurante que esta en azureSql",
 				estado: false,
 				ToDoListId: 3,
 			},
 			{
-				id: 14, TaskName: "Optimizar la app de la tienda de ropa (Refactorizar)",
+				id: 14,
+				TaskName: "Optimizar la app de la tienda de ropa (Refactorizar)",
 				estado: true,
 				ToDoListId: 2,
 			},
-            {
-				id: 15, TaskName: "Optimizar la app de la tienda de ropa (Refactorizar)",
+			{
+				id: 15,
+				TaskName: "Optimizar la app de la tienda de ropa (Refactorizar)",
 				estado: true,
 				ToDoListId: 2,
 			},
 		],
-        task_todo: null,
-        error_task: false,
+		task_todo: null,
+		error_task: false,
+		task_select: null,
 	};
 	//crear dispatch y state
 	const [state, dispatch] = useReducer(TaskReducer, initialState);
 
-    //Funciones
+	//Funciones
 
-    //obtener las tareas por hacer, de un todo list
-    const obtenerTask = (ToDoListId) =>{
-        dispatch({
-            type: TODO_TASK,
-            payload: ToDoListId
-        })
-    }
+	//obtener las tareas por hacer, de un todo list
+	const obtenerTask = (ToDoListId) => {
+		dispatch({
+			type: TODO_TASK,
+			payload: ToDoListId,
+		});
+	};
 
-    const agregarTask = (taskItems) =>{
+	const agregarTask = (taskItems) => {
 		taskItems.id = uuid();
-        dispatch({
-            type: AGREGAR_TASK,
-            payload: taskItems
-        })
-    }
-    
-    const validarTask = () =>{
-        dispatch({
-            type: VALIDAR_TASK,
-        })
-    }
+		dispatch({
+			type: AGREGAR_TASK,
+			payload: taskItems,
+		});
+	};
 
-    const elimianrTask = (ToDoListId) =>{
-        dispatch({
-            type: ELIMINAR_TASK,
-            payload: ToDoListId
-        })
-        
-    }
+	const validarTask = () => {
+		dispatch({
+			type: VALIDAR_TASK,
+		});
+	};
 
-	return <TaskContext.Provider
-            value={{
-                taskItems: state.taskItems,
-                task_todo: state.task_todo,
-                error_task: state.error_task,
-                obtenerTask,
-                agregarTask,
-                validarTask,
-                elimianrTask,
-            }}
-    >{props.children}</TaskContext.Provider>;
+	const elimianrTask = (ToDoListId) => {
+		dispatch({
+			type: ELIMINAR_TASK,
+			payload: ToDoListId,
+		});
+	};
+
+	const estadoTask = (task) => {
+		dispatch({
+			type: ESTADO_TASK,
+			payload: task,
+		});
+	};
+
+	const actualTask = (task) => {
+		dispatch({
+			type: ACTUAL_TASK,
+			payload: task,
+		});
+	};
+
+	const editarTask = (task) =>{
+		dispatch({
+			type: EDITAR_TASK,
+			payload: task,
+		})
+	}
+	return (
+		<TaskContext.Provider
+			value={{
+				taskItems: state.taskItems,
+				task_todo: state.task_todo,
+				error_task: state.error_task,
+				task_select: state.task_select,
+				obtenerTask,
+				agregarTask,
+				validarTask,
+				elimianrTask,
+				estadoTask,
+				actualTask,
+				editarTask,
+			}}
+		>
+			{props.children}
+		</TaskContext.Provider>
+	);
 };
 
 export default TaskState;

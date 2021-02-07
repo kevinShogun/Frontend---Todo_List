@@ -15,7 +15,7 @@ export default (state, action) => {
 		case AGREGAR_TODO:
 			return {
 				...state,
-				ListItems: [...state.ListItems, action.payload],
+				ListItems: [action.payload, ...state.ListItems, ],
                 error_form: false,
                 formulario: false,
 			};
@@ -35,6 +35,7 @@ export default (state, action) => {
                     ListItems: state.ListItems.filter(proyecto=> proyecto.id !== action.payload),
                     todo_select: null
                 }
+				
 		default:
 			return state;
 	}

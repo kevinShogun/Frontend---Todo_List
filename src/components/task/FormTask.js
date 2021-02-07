@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import ProjectContext from "../../contexts/projects/projectContext";
 import TaskContext from "../../contexts/task_Items/TaskContext";
 
@@ -7,17 +7,34 @@ const FormTask = () => {
 	const projectsContext = useContext(ProjectContext);
 	const { todo_select } = projectsContext;
 
-	
 	const tasksContext = useContext(TaskContext);
-	const { obtenerTask, error_task, agregarTask, validarTask } = tasksContext;
+	const {
+		error_task,
+		task_select,
+		obtenerTask,
+		agregarTask,
+		validarTask,
+		editarTask,
+	} = tasksContext;
+
+	// Effect que detecta si hay una tarea seleccionada
+	useEffect(() => {
+		if (task_select !== null) {
+			guardarTask(task_select);
+		} else {
+			guardarTask({
+				TaskName: "",
+			});
+		}
+	}, [task_select]);
+
 	//state del formulario
 	const [task, guardarTask] = useState({
-		TaskName: '',
-
+		TaskName: "",
 	});
 
-	//extraer el nombre del formulario 
-	const {TaskName} = task;
+	//extraer el nombre del formulario
+	const { TaskName } = task;
 
 	// si no hay todo seleccionado
 	if (!todo_select) return null;
@@ -25,39 +42,39 @@ const FormTask = () => {
 	// Array destructuring para extraer el todo actual
 	const [todo_actual] = todo_select;
 
-	//lee valores del formulario 
-	const handleChange = (e) =>{
+	//lee valores del formulario
+	const handleChange = (e) => {
 		guardarTask({
 			...task,
-			[e.target.name] : e.target.value
-		})
-	}
+			[e.target.name]: e.target.value,
+		});
+	};
 
-	const onSubmit = (e) =>{
+	const onSubmit = (e) => {
 		e.preventDefault();
 		//validar
-		if(TaskName.trim() === ''){
+		if (TaskName.trim() === "") {
 			validarTask();
 			return;
 		}
-		// pasar la validacion
-
-		//agragegar nueva tarea al state de task 
-		task.ToDoListId = todo_actual.id;
-		task.estado = false;
-		agregarTask(task);
-
+		// Revisa si edita o agrega task
+		if (task_select === null) {
+			//agragegar nueva tarea al state de task
+			task.ToDoListId = todo_actual.id;
+			task.estado = false;
+			agregarTask(task);
+		} else {
+			editarTask(task);
+		}
 
 		//obtener y filtrar las tareas del todo
 		obtenerTask(todo_actual.id);
 
 		// reiniciar el form
 		guardarTask({
-			TaskName: ''
+			TaskName: "",
 		});
-
-	}
-
+	};
 
 	return (
 		<div className="formulario">
@@ -77,13 +94,16 @@ const FormTask = () => {
 					<input
 						type="submit"
 						className="btn btn-block btn-submit btn-primario"
-						value="Add task"
+						value={task_select ? "Edit Task" : "Add task"}
 					/>
 				</div>
 			</form>
 
-			{error_task ? <p className="mensaje error">Error: The task is empty, the name is requied</p> : null}
-
+			{error_task ? (
+				<p className="mensaje error">
+					Error: The task is empty, the name is requied
+				</p>
+			) : null}
 		</div>
 	);
 };
