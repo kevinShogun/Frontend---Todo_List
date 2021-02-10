@@ -4,15 +4,15 @@ import ListadoTodoLists from "../todoLists/ListadoTodoLists";
 
 const Sidebar = () => {
 	return (
-		<aside>
+		<aside className="sombra">
 			<h1>
-				Todo<span>Lists</span>
+				Todo<span>&nbsp;&nbsp;Lists</span> &nbsp;&nbsp; <box-icon name='clipboard' ></box-icon>
 			</h1>
 
 			<NuevoTodoList />
 
 			<div className="todoLists">
-				<h2>To Do Lists</h2>
+				<h2>Tus Todo Lists  </h2>
 				<ListadoTodoLists />
 			</div>
 		</aside>

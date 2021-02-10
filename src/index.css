@@ -1,11 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@500&family=Ubuntu:wght@500&display=swap');
+
 :root {
-	--blanco: #ffffff;
+	--blanco: #fefefe;
 	--gris1: #edf2f6;
 	--gris2: #2f3848;
 	--gris3: #1a202d;
 	--negro: #000000;
-	--headingFont: "Raleway", sans-serif;
-	--textFont: "Roboto", sans-serif;
+	--headingFont: "Ubuntu", sans-serif;
+	--textFont: "Poppins", sans-serif;
 }
 *,
 *:before,
@@ -52,8 +54,10 @@ a {
 	color: var(--gris2);
 }
 
+
 /** BOTONES **/
 .btn {
+	outline: none;
 	margin-top: 2rem;
 	font-family: var(--headingFont);
 	padding: 1.5rem;
@@ -67,27 +71,63 @@ a {
 	cursor: pointer;
 }
 .btn-primario {
+	font-size: 20px;
 	background-color: var(--gris2);
 	color: var(--blanco);
+	transition: all 0.3s ease;
 }
+
 .btn-primario:hover {
-	background: var(--gris3);
+	transition: all 0.3s ease;
+	background: transparent;
+	color: var(--gris3);
+	border: solid var(--gris3);
 }
+
 .btn-secundario {
 	background-color: var(--gris1);
+	
 }
 .btn-block {
+	outline: none;
 	display: block;
 	width: 100%;
 }
 .btn-submit:hover {
-	background-color: var(--gris2);
+	transition: all 0.3s ease;
+	background:  var(--blanco);
+	color:  var(--gris2);
+	border: solid var(--gris2);
 }
 .btn-blank {
+	outline: none;
+	font-size: 20px;
+	transition: all 0.4s ease;
 	margin: 0;
 	padding: 0;
 	display: block;
+	border-radius: 0rem;
 	background-color: transparent;
+}
+.btn-eliminar{
+	font-size: 20px;
+	background-color: #2f3848;
+	color: #e1e1e1;
+	transition: all 0.3s ease;
+}
+
+.btn-eliminar:hover{
+	background-color: transparent;
+	color: #2f3848;
+	border: solid #2f3848;
+	transition: all 0.3s ease;
+}
+
+.btn-blank:hover{
+	font-size: 25px;
+	transition: all 0.4s ease;
+	border-bottom: solid 3px #817c7c;
+	border-radius: 0rem;
 }
 .cerrar-sesion {
 	color: var(--blanco);
@@ -283,6 +323,8 @@ aside {
 	transition: opacity 200ms;
 }
 
+
+
 .form-usuario {
 	background-color: var(--gris2);
 	height: 100vh;
@@ -292,9 +334,12 @@ aside {
 	justify-content: center;
 }
 
+
+
+
 .contenedor-form {
 	padding: 5rem 3rem;
-	max-width: 500px;
+	max-width: 600px;
 	width: 95%;
 	background-color: var(--blanco);
 	border-radius: 1rem;
@@ -309,7 +354,7 @@ aside {
 	margin: 0;
 }
 .campo-form label {
-	flex: 0 0 100px;
+	flex: 0 0 120px;
 	font-family: var(--textFont);
 }
 .campo-form input[type="password"],

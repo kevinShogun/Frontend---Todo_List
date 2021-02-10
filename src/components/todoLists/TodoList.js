@@ -24,7 +24,7 @@ const TodoList = ({ todoList }) => {
 				className="btn btn-blank"
 				onClick={() => seleccionarTodoList(todoList._id)}
 			>
-				{todoList.nombre}{" "}
+			<i class="fas fa-thumbtack"></i>   {todoList.nombre}{" "}
 			</button>
 		</li>
 	);

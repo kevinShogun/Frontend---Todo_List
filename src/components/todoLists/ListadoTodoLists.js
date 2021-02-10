@@ -36,7 +36,7 @@ const ListadoTodoLists = () => {
 			<TransitionGroup>
 				{todoLists.map((todoList) => (
 					<CSSTransition key={todoList._id} timeout={200} classNames="todoList">
-						<TodoList todoList={todoList} />
+					<TodoList todoList={todoList} />
 					</CSSTransition>
 				))}
 			</TransitionGroup>

@@ -58,17 +58,17 @@ const Login = (props) => {
 	};
 
 	return (
-		<div className="form-usuario">
+		<div className="overlay form-usuario sombra-dark">
 			{alerta ? (
 				<div className={`alerta ${alerta.categoria}`}> {alerta.msg} </div>
 			) : null}
 
 			<div className="contenedor-form sombra-dark">
-				<h1>Iniciar Sesión</h1>
+				<h1>Iniciar Sesión <i class="fas fa-sign-in-alt"></i></h1>
 
 				<form onSubmit={onSubmit}>
 					<div className="campo-form">
-						<label htmlFor="email">Email</label>
+						<label htmlFor="email">Email &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <box-icon name='envelope'></box-icon> </label>
 						<input
 							type="email"
 							id="email"
@@ -80,7 +80,7 @@ const Login = (props) => {
 					</div>
 
 					<div className="campo-form">
-						<label htmlFor="password">Password</label>
+						<label htmlFor="password">Password &nbsp; <box-icon name='lock'></box-icon></label>
 						<input
 							type="password"
 							id="password"

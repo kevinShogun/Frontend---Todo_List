@@ -85,12 +85,13 @@ const NuevaCuenta = (props) => {
 				<div className={`alerta ${alerta.categoria}`}> {alerta.msg} </div>
 			) : null}
 			<div className="contenedor-form sombra-dark">
-				<h1>Obtener una cuenta</h1>
+				<h1>Obtener una cuenta <i class="far fa-user-circle"></i></h1>
 
 				<form onSubmit={onSubmit}>
 					<div className="campo-form">
-						<label htmlFor="nombre">Nombre</label>
+						<label htmlFor="nombre">Nombre &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<i class="far fa-user"></i></label>
 						<input
+						
 							type="text"
 							id="nombre"
 							name="nombre"
@@ -101,7 +102,7 @@ const NuevaCuenta = (props) => {
 					</div>
 
 					<div className="campo-form">
-						<label htmlFor="email">Email</label>
+						<label htmlFor="email">Email     &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="far fa-envelope"></i></label>
 						<input
 							type="email"
 							id="email"
@@ -113,7 +114,7 @@ const NuevaCuenta = (props) => {
 					</div>
 
 					<div className="campo-form">
-						<label htmlFor="password">Password</label>
+						<label htmlFor="password">Password &nbsp; <box-icon name='lock'></box-icon> </label>
 						<input
 							type="password"
 							id="password"
@@ -125,7 +126,7 @@ const NuevaCuenta = (props) => {
 					</div>
 
 					<div className="campo-form">
-						<label htmlFor="confirmar">Confirmar Password</label>
+						<label htmlFor="confirmar">Confirmar Password &nbsp; <box-icon name='lock'></box-icon></label>
 						<input
 							type="password"
 							id="confirmar"

@@ -21,7 +21,7 @@ const Barra = () => {
 	}
 
 	return (
-		<header className="app-header">
+		<header className="app-header sombra">
 			{usuario ? (
 				<p className="nombre-usuario">
 					Hola <span>{usuario.nombre} </span>{" "}
@@ -34,7 +34,8 @@ const Barra = () => {
 					className="btn btn-blank cerrar-sesion"
 					onClick={refreshPage}
 				>
-					Cerrar Sesión
+					Cerrar Sesión &nbsp; 
+					<i class="fas fa-sign-out-alt"></i>
 				</button>
 			</nav>
 		</header>

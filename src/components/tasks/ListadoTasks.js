@@ -26,12 +26,13 @@ const ListadoTasks = () => {
 
 	return (
 		<Fragment>
-			<h2>TodoList: {todoListActual.nombre} </h2>
+			<h2> <i class="fas fa-list-ul"></i> &nbsp; Todo List: {todoListActual.nombre} </h2>
 
 			<ul className="listado-tasks">
 				{taskstodoList.length === 0 ? (
 					<li className="task">
-						<p>No hay tasks</p>
+						<p>No hay tasks  </p> <box-icon name='task-x' ></box-icon>
+						
 					</li>
 				) : (
 					<TransitionGroup>
@@ -46,7 +47,7 @@ const ListadoTasks = () => {
 
 			<button
 				type="button"
-				className="btn btn-eliminar"
+				className="btn btn-eliminar sombra"
 				onClick={onClickEliminar}
 			>
 				Eliminar TodoList &times;
