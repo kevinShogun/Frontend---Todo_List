@@ -44,8 +44,8 @@ const TodoListState = (props) => {
 			});
 		} catch (error) {
 			const alerta = {
-				msg: "Hubo un error",
-				categoria: "alerta-error",
+				/* msg: "Hubo un error",
+				categoria: "alerta-error", */
 			};
 
 			dispatch({
@@ -67,8 +67,8 @@ const TodoListState = (props) => {
 			});
 		} catch (error) {
 			const alerta = {
-				msg: "Hubo un error",
-				categoria: "alerta-error",
+				/* msg: "Hubo un error",
+				categoria: "alerta-error", */
 			};
 
 			dispatch({
@@ -103,8 +103,8 @@ const TodoListState = (props) => {
 			});
 		} catch (error) {
 			const alerta = {
-				msg: "Hubo un error",
-				categoria: "alerta-error",
+			/* 	msg: "Hubo un error",
+				categoria: "alerta-error", */
 			};
 
 			dispatch({

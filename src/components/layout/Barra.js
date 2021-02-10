@@ -16,7 +16,6 @@ const Barra = () => {
 	}, []);
 
 	function refreshPage() {
-		window.location.reload(false);
 		cerrarSesion();
 		limpiarTask();
 	}

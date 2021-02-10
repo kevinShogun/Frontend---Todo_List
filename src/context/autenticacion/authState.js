@@ -4,6 +4,7 @@ import AuthReducer from "./authReducer";
 import TaskContext from "../tasks/taskContext";
 import clienteAxios from "../../config/axios";
 import tokenAuth from "../../config/token";
+import Cache from "../../config/cache";
 
 import {
 	REGISTRO_EXITOSO,
@@ -106,12 +107,14 @@ const AuthState = (props) => {
 	};
 
 	// Cierra la sesión del usuario
-	const cerrarSesion = (props) => {
-		limpiarTask();
+	const cerrarSesion = () => {
+		
 		dispatch({
 			type: CERRAR_SESION,
 
 		});
+		limpiarTask();
+		Cache();
 	};
 
 	return (
