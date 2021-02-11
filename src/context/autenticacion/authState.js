@@ -4,7 +4,6 @@ import AuthReducer from "./authReducer";
 import TaskContext from "../tasks/taskContext";
 import clienteAxios from "../../config/axios";
 import tokenAuth from "../../config/token";
-import Cache from "../../config/cache";
 
 import {
 	REGISTRO_EXITOSO,
