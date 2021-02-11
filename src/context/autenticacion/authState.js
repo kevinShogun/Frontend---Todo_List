@@ -113,8 +113,6 @@ const AuthState = (props) => {
 			type: CERRAR_SESION,
 
 		});
-		limpiarTask();
-		Cache();
 	};
 
 	return (
