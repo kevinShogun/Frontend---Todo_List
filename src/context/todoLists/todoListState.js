@@ -59,7 +59,6 @@ const TodoListState = (props) => {
 	const agregarTodoList = async (todoList) => {
 		try {
 			const resultado = await clienteAxios.post("/api/todoLists", todoList);
-			console.log(resultado);
 			// Insertar el todoList en el state
 			dispatch({
 				type: AGREGAR_TODOLIST,

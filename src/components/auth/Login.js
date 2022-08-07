@@ -64,7 +64,7 @@ const Login = (props) => {
 			) : null}
 
 			<div className="contenedor-form sombra-dark">
-				<h1>Iniciar Sesión <i class="fas fa-sign-in-alt"></i></h1>
+				<h1>Iniciar Sesión <i className="fas fa-sign-in-alt"></i></h1>
 
 				<form onSubmit={onSubmit}>
 					<div className="campo-form">

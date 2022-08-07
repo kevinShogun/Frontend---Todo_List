@@ -35,7 +35,7 @@ const Barra = () => {
 					onClick={refreshPage}
 				>
 					Cerrar Sesión &nbsp; 
-					<i class="fas fa-sign-out-alt"></i>
+					<i className="fas fa-sign-out-alt"></i>
 				</button>
 			</nav>
 		</header>

@@ -85,11 +85,11 @@ const NuevaCuenta = (props) => {
 				<div className={`alerta ${alerta.categoria}`}> {alerta.msg} </div>
 			) : null}
 			<div className="contenedor-form sombra-dark">
-				<h1>Obtener una cuenta <i class="far fa-user-circle"></i></h1>
+				<h1>Obtener una cuenta <i className="far fa-user-circle"></i></h1>
 
 				<form onSubmit={onSubmit}>
 					<div className="campo-form">
-						<label htmlFor="nombre">Nombre &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<i class="far fa-user"></i></label>
+						<label htmlFor="nombre">Nombre &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<i className="far fa-user"></i></label>
 						<input
 						
 							type="text"
@@ -102,7 +102,7 @@ const NuevaCuenta = (props) => {
 					</div>
 
 					<div className="campo-form">
-						<label htmlFor="email">Email     &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="far fa-envelope"></i></label>
+						<label htmlFor="email">Email     &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i className="far fa-envelope"></i></label>
 						<input
 							type="email"
 							id="email"

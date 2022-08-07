@@ -26,7 +26,7 @@ const ListadoTasks = () => {
 
 	return (
 		<Fragment>
-			<h2> <i class="fas fa-list-ul"></i> &nbsp; Todo List: {todoListActual.nombre} </h2>
+			<h2> <i className="fas fa-list-ul"></i> &nbsp; Todo List: {todoListActual.nombre} </h2>
 
 			<ul className="listado-tasks">
 				{taskstodoList.length === 0 ? (
@@ -37,7 +37,7 @@ const ListadoTasks = () => {
 				) : (
 					<TransitionGroup>
 						{taskstodoList.map((task) => (
-							<CSSTransition key={task.id} timeout={200} classNames="task">
+							<CSSTransition key={task._id} timeout={400} classNames="task">
 								<Task task={task} />
 							</CSSTransition>
 						))}
