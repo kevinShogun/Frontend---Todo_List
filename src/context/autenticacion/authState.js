@@ -34,6 +34,8 @@ const AuthState = (props) => {
 		try {
 			const respuesta = await clienteAxios.post("/api/usuarios", datos);
 
+			console.log( process.env.REACT_APP_API_URL);
+			
 			dispatch({
 				type: REGISTRO_EXITOSO,
 				payload: respuesta.data,

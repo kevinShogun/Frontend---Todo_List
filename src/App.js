@@ -17,6 +17,8 @@ if (token) {
 	tokenAuth(token);
 }
 
+console.log({baseURL: process.env.REACT_APP_API_URL} , 'aqui');
+
 function App() {
 	return (
 		<TodoListState>
