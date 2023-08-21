@@ -7,4 +7,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 [Backend Repo](https://github.com/kevinShogun/Backend).
 
-[Click me](https://youthful-northcutt-6566cf.netlify.app/).
+[Click me](https://todo-list-kevin.netlify.app/).
